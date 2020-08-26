@@ -1,0 +1,22 @@
+
+    <div class=" d-flex justify-content-between fondo mt-3" >
+     
+    <!--     <div id="icon-weather row">  
+            <h2 class="local"><span id="city"></span>{{climaActual['name']}},{{climaActual['sys']['country']}}<span id="country"></span></h2>
+        </div> -->
+        <div class="row d-flex align-items-start ml-3">
+            <img     class="logo-img logo" >  
+        </div>
+        <div class="row d-flex align-items-end align-items-center mr-3">
+           
+            <h4 class="temperature texto-numeros" *ngIf="climaActual"><img id="wicon" src="{{imagen}}" alt="Weather icon" class="mr-2"> 
+              <span id="texto-numeros" *ngIf="climaActual">{{climaActual['main']['temp']}}° C</span>
+            </h4>
+            <h6 class="temperature-descripcion texto-numeros ml-4"  *ngIf="climaActual" >  
+                <span id=" texto-numeros"></span> {{climaActual['weather'][0]['description'] | uppercase }}<span id="btn-change" class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+            </h6>
+          
+        </div>
+      
+
+    </div>

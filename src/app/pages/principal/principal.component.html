@@ -1,0 +1,97 @@
+<div class="background-principal alto-pantalla " *ngIf="!llamando">
+    <div class="row mr-4   "  >
+        <div class="col-8  fondo pl-3 pr-3">
+            <app-clima class="" ></app-clima>
+            <app-reproductior-multimedia ></app-reproductior-multimedia>    
+        </div>
+        
+    <div class="col-4 fondo-numeros-general">
+
+        <div>
+            <h1 class="border-text-datos-titulo mt-5 mb-5 ">LLAMANDO</h1>
+        </div>
+        
+             <div class="row m-4 ">
+                <div class="col-6">
+                    <h1 class="border-text-datos">PUESTO</h1>
+                </div>            
+                <div class="col-6">
+                    <h1 class="border-text-datos ">NUMERO</h1>
+                </div>
+            
+            </div>
+           
+            <div class="row m-4 mr-4 border background-numeros" *ngFor="let ele of elementoLlamando">
+                
+                    <div class="col-4 ">
+                        <h1 class="texto-fuente border-text-puesto mt-4 mb-4">{{ele.puesto_defecto}} </h1>
+                    </div>
+                 
+                    <div class="col-8">
+                        <h1 class=" texto-fuente border-text-puesto mt-4 mb-4">{{ele.sector_abreviado}}{{ele.numero}}</h1>
+                    </div>
+                    
+            </div>
+                 
+
+
+        <div>
+            <h1 class="border-text-datos-titulo mt-5 mb-5 ">ATENDIDOS</h1>
+        </div>
+        
+             <div class="row m-4 ">
+                <div class="col-6">
+                    <h1 class="border-text-datos">PUESTO</h1>
+                </div>            
+                <div class="col-6">
+                    <h1 class="border-text-datos ">NUMERO</h1>
+                </div>
+            
+            </div>
+           
+            <div class="row m-4 mr-4 border" *ngFor="let ele of elementosAtendidos">
+                
+                    <div class="col-4 ">
+                        <h1 class="texto-fuente border-text-puesto mt-4 mb-4">{{ele.puesto_defecto}} </h1>
+                    </div>
+                 
+                    <div class="col-8">
+                        <h1 class=" texto-fuente border-text-puesto mt-4 mb-4">{{ele.sector_abreviado}}{{ele.numero}}</h1>
+                    </div>
+                    
+            </div>
+                 
+        
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="row mr-4  padding-llamando-paciente" *ngIf="llamando" >
+        <div class="col-1"></div>
+            <div class="col-10  border-llamando " *ngIf="numeroLlamando" >  
+        
+                    <div class="padding-llamando-elemento">
+                        <h1 class="text-color-notificacion   mt-2">PUESTO </h1>
+                    </div>  
+                    <div class=" padding-llamando-paciente">
+                        <h1 class="text-color-notificacion-letra ">{{numeroLlamando[0].puesto_defecto}}</h1>
+                    </div>
+                    <div class="padding-llamando-elemento">
+                            <h1 class="text-color-notificacion   mt-2">NUMERO</h1>
+                        </div>
+                    <div class=" padding-llamando-paciente">
+                        <h1 class="text-color-notificacion-letra  ">{{numeroLlamando[0].sector_abreviado}}{{numeroLlamando[0].numero}}</h1>
+                    </div>
+
+                    <div class="padding-llamando-elemento">
+                        <h1 class="text-color-notificacion   mt-2">SECTOR</h1>
+                    </div>
+                <div class=" padding-llamando-paciente">
+                    <h1 class="text-color-notificacion-letra   mt-2">{{numeroLlamando[0].sector_nombre}}</h1>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            
+        </div>
