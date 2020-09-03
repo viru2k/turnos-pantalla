@@ -4,6 +4,7 @@ import { MultimediaArchivo } from './../../../models/multimedia-archivo.model';
 import { URL_ARCHIVO } from './../../../config/config';
 import { BehaviorSubject, interval, never } from 'rxjs';
 import { switchMap, startWith } from 'rxjs/operators';
+import { SocketService } from './../../../services/socket.service';
 
 @Component({
   selector: 'app-reproductior-multimedia',
@@ -26,10 +27,23 @@ export class ReproductiorMultimediaComponent implements OnInit {
   playing = new BehaviorSubject(false);
   @ViewChild('videoPlayer', { static: false }) videoplayer: any;
 
-  constructor(private multimediaService: MultimediaService) { }
+  constructor(
+    private socketService: SocketService,
+    private multimediaService: MultimediaService) { }
 
 
   ngOnInit() {
+
+    this.socketService.listen('datos')
+    .subscribe((data: any) => {
+      console.log(data);
+      if (data === 'reiniciar-multimedia') {
+          console.log(data);
+          this.getArchivos();
+          // evaluo si hay nuevo cliente
+      }
+    });
+
 
     this.subscribirTimer();
     this.getArchivos();
@@ -42,8 +56,8 @@ export class ReproductiorMultimediaComponent implements OnInit {
 
        // si es el ultimo seteo primera vez a verdadero y contador a 0
        if ((this.archivoNumero ) === (this.limiteArchivo - 1)) {
-        console.log('-----------ULTIMO ELEMENTO--------------');
-        console.log(' elemento ' + this.archivoNumero + ' de ' + (this.limiteArchivo - 1) );
+     //   console.log('-----------ULTIMO ELEMENTO--------------');
+     //   console.log(' elemento ' + this.archivoNumero + ' de ' + (this.limiteArchivo - 1) );
         if (this.images[this.archivoNumero].es_video) {
             console.log('ES VIDEO');
             this.esUltimo = true;
@@ -58,8 +72,8 @@ export class ReproductiorMultimediaComponent implements OnInit {
       }
 
        if ( (!this.esPrimeraVez)) {
-              console.log('-----------ELEMENTO DE LA PILA--------------');
-              console.log(' elemento ' + this.archivoNumero + ' de ' + (this.limiteArchivo - 1) );
+          //    console.log('-----------ELEMENTO DE LA PILA--------------');
+          //    console.log(' elemento ' + this.archivoNumero + ' de ' + (this.limiteArchivo - 1) );
               if (this.images[this.archivoNumero].es_video) {
                 console.log('ES VIDEO');
                 this.iniciarVideo();
@@ -107,8 +121,8 @@ export class ReproductiorMultimediaComponent implements OnInit {
   }
 
   iniciarVideo() {
-    console.log('reproducioendo ' + this.images[this.archivoNumero].archivo_nombre);
-    console.log(this.images[this.archivoNumero]);
+  //  console.log('reproducioendo ' + this.images[this.archivoNumero].archivo_nombre);
+   // console.log(this.images[this.archivoNumero]);
     this.playing.next(false);
     this.videoplayer.nativeElement.src = this.images[this.archivoNumero].archivo_nombre;
     this.videoplayer.nativeElement.load();
@@ -128,7 +142,7 @@ export class ReproductiorMultimediaComponent implements OnInit {
   }
 
   cambiarVideo() {
-    console.log('video finalizado');
+  //  console.log('video finalizado');
     if (this.playPromise !== undefined) {
       this.playPromise.then(_ => {
         // Automatic playback started!

@@ -36,12 +36,12 @@ export class DocumentService {
   }
 
    sendMessage(document: string) {
-    this.socket.emit('new-message', document);
+    this.socket.emit('send-message', document);
   }
 
  getMessages = () => {
   return Observable.create((observer) => {
-      this.socket.on('new-message', (message) => {
+      this.socket.on('send-message', (message) => {
           observer.next(message);
       });
   });

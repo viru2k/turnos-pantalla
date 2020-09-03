@@ -23,12 +23,12 @@
            
             <div class="row m-4 mr-4 border background-numeros" *ngFor="let ele of elementoLlamando">
                 
-                    <div class="col-4 ">
+                    <div class="col-3 ">
                         <h1 class="texto-fuente border-text-puesto mt-4 mb-4">{{ele.puesto_defecto}} </h1>
                     </div>
                  
-                    <div class="col-8">
-                        <h1 class=" texto-fuente border-text-puesto mt-4 mb-4">{{ele.sector_abreviado}}{{ele.numero}}</h1>
+                    <div class="col-9">
+                        <h1 class=" texto-fuente border-text-puesto mt-4 mb-4">{{ele.sector_abreviado}}-{{ele.numero}}</h1>
                     </div>
                     
             </div>
@@ -51,12 +51,12 @@
            
             <div class="row m-4 mr-4 border" *ngFor="let ele of elementosAtendidos">
                 
-                    <div class="col-4 ">
+                    <div class="col-3 ">
                         <h1 class="texto-fuente border-text-puesto mt-4 mb-4">{{ele.puesto_defecto}} </h1>
                     </div>
                  
-                    <div class="col-8">
-                        <h1 class=" texto-fuente border-text-puesto mt-4 mb-4">{{ele.sector_abreviado}}{{ele.numero}}</h1>
+                    <div class="col-9">
+                        <h1 class=" texto-fuente border-text-puesto mt-4 mb-4">{{ele.sector_abreviado}}-{{ele.numero}}</h1>
                     </div>
                     
             </div>
@@ -82,7 +82,7 @@
                             <h1 class="text-color-notificacion   mt-2">NUMERO</h1>
                         </div>
                     <div class=" padding-llamando-paciente">
-                        <h1 class="text-color-notificacion-letra  ">{{numeroLlamando[0].sector_abreviado}}{{numeroLlamando[0].numero}}</h1>
+                        <h1 class="text-color-notificacion-letra  ">{{numeroLlamando[0].sector_abreviado}}-{{numeroLlamando[0].numero}}</h1>
                     </div>
 
                     <div class="padding-llamando-elemento">

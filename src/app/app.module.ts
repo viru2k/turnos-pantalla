@@ -21,6 +21,7 @@ import { ReproductiorMultimediaComponent } from './pages/multimedia/reproductior
 import {GalleriaModule} from 'primeng/galleria';
  import { ApixuService } from './services/apixu.service';
 import { ClimaComponent } from './pages/clima/clima.component';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ClimaComponent } from './pages/clima/clima.component';
     BrowserModule,
     AppRoutingModule,
     GalleriaModule,
+    ToastModule,
     SweetAlert2Module.forRoot(),
 
     SocketIoModule.forRoot(config),

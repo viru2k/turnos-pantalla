@@ -5,11 +5,11 @@
 /*                                FARMACIA CUYO                               */
 /* -------------------------------------------------------------------------- */
 
-//$background-numeros: #f8f9fa;
-//$background-numeros-general: #e9ecef;
-//$background-pantalla: #DB015B;
-//$texto-numeros : #FFFFFF;
-//$logo-imagen: "./../../../assets/imagenes/logo-cuyo.png";
+$background-numeros: #f8f9fa;
+$background-numeros-general: #e9ecef;
+$background-pantalla: #DB015B;
+$texto-numeros : #FFFFFF;
+$logo-imagen: "./../../../assets/imagenes/logo-cuyo.png";
    
 
 
@@ -18,11 +18,11 @@
 /* -------------------------------------------------------------------------- */
 
 
-$background-numeros: #f8f9fa;
-$background-numeros-general: #e9ecef;
-$background-pantalla: #e9ecef;
-$texto-numeros : #6C6D74;
-$logo-imagen: "./../../../assets/imagenes/logo-farmatotal.png";
+//$background-numeros: #f8f9fa;
+//$background-numeros-general: #e9ecef;
+//$background-pantalla: #e9ecef;
+//$texto-numeros : #6C6D74;
+//$logo-imagen: "./../../../assets/imagenes/logo-farmatotal.png";
 
 
 
@@ -35,3 +35,6 @@ $logo-imagen: "./../../../assets/imagenes/logo-farmatotal.png";
 
 //$background-numeros: #DB015B;
 //$texto-numeros : #FFFFFF;
+* body{
+    background-color: $background-pantalla; 
+}

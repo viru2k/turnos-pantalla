@@ -9,7 +9,10 @@ export class ApixuService {
   constructor(private http: HttpClient) {}
 // SE AGREGO LA RUTA CORS ANYWHERE HEROKU
   getWeather(){
-    return this.http.get<any[]>('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=San%20juan,%20argentina&appid=e0812e75f9ced8afb4c67cea2af16cd6&units=metric&lang=es');
+    // mendoza
+    return this.http.get<any[]>('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=mendoza,%20argentina&appid=e0812e75f9ced8afb4c67cea2af16cd6&units=metric&lang=es');
+    // san juan
+    //return this.http.get<any[]>('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=San%20juan,%20argentina&appid=e0812e75f9ced8afb4c67cea2af16cd6&units=metric&lang=es');
 
   }
 }
