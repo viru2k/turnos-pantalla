@@ -46,6 +46,8 @@ $header-line-height: 1.25;
     margin: center;
     align-items: center;
     border-radius: 24px;
+    max-height: 1024px;
+    min-height: 1000px;
   }
 
 
@@ -91,4 +93,6 @@ $imagen-logo: "./";
 
 .video-params {
   border-radius: 24px;
+  max-height: 1024px;
+  min-height: 600px;
 }

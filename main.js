@@ -3,25 +3,22 @@
 const electron = require('electron');
 const app =  electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const path = require('path')
-const url = require('url')
+const path = require('path');
+const url = require('url');
 
 const fs = require("fs");
 const os = require('os');
 const ipc = electron.ipcMain;
 const shell = electron.shell;
-
+// REQUERIDO PARA QUE REPRODUZCA SONIDO EN PANTALLA
+app.commandLine.appendSwitch('--autoplay-policy','no-user-gesture-required'); 
+// DESHABILITAR CORS CUANDO CORRE
+app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
 let win
 let winpopup = null;
 function createWindow () {
-  // Create the browser window.
- /*  win = new BrowserWindow({
-   
-    webPreferences: {
-      nodeIntegration: true
-    }
-  }); */
+
   win = new BrowserWindow({show: false});
   win.maximize();
 win.show();
@@ -29,11 +26,7 @@ win.show();
 
   // and load the index.html of the app.
   win.loadFile('dist/turnos-pantalla/index.html') // DEBE SER CAMBIANDO POR DIST/LAUBICACIONDEMIARCHIVO
-  //win.loadURL(`file://${__dirname}/dist/index.html`)
-  // Open the DevTools.
- // win.webContents.openDevTools()
-
-  // Emitted when the window is closed.
+  
   win.on('closed', () => {
 
     win = null

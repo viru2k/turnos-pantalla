@@ -22,6 +22,10 @@ import {GalleriaModule} from 'primeng/galleria';
  import { ApixuService } from './services/apixu.service';
 import { ClimaComponent } from './pages/clima/clima.component';
 import {ToastModule} from 'primeng/toast';
+import {DialogModule} from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RssComponent } from './pages/rss/rss.component';
+
 
 @NgModule({
   declarations: [
@@ -31,15 +35,18 @@ import {ToastModule} from 'primeng/toast';
     ClimaComponent,
     EmptyComponent,
     NotFoundComponent,
-    ReproductiorMultimediaComponent
+    ReproductiorMultimediaComponent,
+    RssComponent
   ],
-  imports: [ FormsModule ,
- 
+  imports: [ 
+    FormsModule ,
+    BrowserAnimationsModule,
   HttpClientModule ,
     BrowserModule,
     AppRoutingModule,
     GalleriaModule,
     ToastModule,
+    DialogModule,
     SweetAlert2Module.forRoot(),
 
     SocketIoModule.forRoot(config),

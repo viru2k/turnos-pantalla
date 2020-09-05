@@ -40,6 +40,9 @@ export class PrincipalComponent implements OnInit {
  textoLargo: boolean;
  largo: number;
 
+ llamandolimite = 0;
+ atendiendolimite = 0;
+
   constructor(
     private socketService: SocketService,
     private authenticationService: AuthenticationService,
@@ -64,7 +67,7 @@ export class PrincipalComponent implements OnInit {
     setTimeout(() => {
       this.llamando = false;
       console.log('tiempo finalizado');
-    }, 18000);
+    }, 6000);
 
     this.asignarModulos(userData.access_list);
 
@@ -72,6 +75,8 @@ export class PrincipalComponent implements OnInit {
     .subscribe((data: any) => {
       console.log(data);
       console.log(data);
+      this.playAudio();
+      
       if (data === 'llamando-pantalla') {
         
        this.getListadoPantalla();
@@ -94,6 +99,7 @@ export class PrincipalComponent implements OnInit {
         console.log('tiempo finalizado');
     }, 5000);*/
        } 
+     
     });
 
 
@@ -111,6 +117,7 @@ export class PrincipalComponent implements OnInit {
     audio.load();
     audio.play();
   }
+  
 
 
   agregarCaracter(numero: string){
@@ -189,26 +196,24 @@ loadUser() {
       this.turnoService.getListadoPantalla()
       .subscribe(resp => {
         console.log(resp);
-        if (resp.length>0) {
-          let llamandolimite = 0;
-          let atendiendolimite = 0;
-          this.elementosAtendidos = [];
-          this.elementoLlamando = [];
-          resp.forEach(element => {
-              if ((element.estado === 'ATENDIDO') && (atendiendolimite < 4)) {
+        if (resp.length > 0) {
+           this.llamandolimite = 0;
+           this.atendiendolimite = 0;
+           this.elementosAtendidos = [];
+           this.elementoLlamando = [];
+           resp.forEach(element => {
+              if ((element.estado === 'ATENDIDO') && (this.atendiendolimite < 4)) {
                 element.numero = this.filter.padLeft(element.numero, '0', 3);
                 this.elementosAtendidos.push(element);
-                atendiendolimite++;
+                this.atendiendolimite++;
               }
-
-              if ((element.estado === 'LLAMANDO') && (llamandolimite < 4)) {
+              if ((element.estado === 'LLAMANDO') && (this.llamandolimite < 4)) {
                 element.numero = this.filter.padLeft(element.numero, '0', 3);
                 this.elementoLlamando.push(element);
-                llamandolimite++;
+                this.llamandolimite++;
               }
             });
-       
-          this.llamandoNumero();
+           this.llamandoNumero();
         }
       },
       error => { // error path

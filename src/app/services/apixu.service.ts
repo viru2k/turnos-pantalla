@@ -10,10 +10,17 @@ export class ApixuService {
 // SE AGREGO LA RUTA CORS ANYWHERE HEROKU
   getWeather(){
     // mendoza
-    return this.http.get<any[]>('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=mendoza,%20argentina&appid=e0812e75f9ced8afb4c67cea2af16cd6&units=metric&lang=es');
+    //return this.http.get<any[]>('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=mendoza,%20argentina&appid=e0812e75f9ced8afb4c67cea2af16cd6&units=metric&lang=es');
     // san juan
-    //return this.http.get<any[]>('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=San%20juan,%20argentina&appid=e0812e75f9ced8afb4c67cea2af16cd6&units=metric&lang=es');
+    return this.http.get<any[]>('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=San%20juan,%20argentina&appid=e0812e75f9ced8afb4c67cea2af16cd6&units=metric&lang=es');
 
+  }
+
+  getRss() {
+  
+    return this.http.get('https://www.clarin.com/rss/lo-ultimo/' 
+    , { observe: 'body', responseType: 'text'} );
+    //  return this.http.get<any>('https://www.clarin.com/rss/lo-ultimo/');
   }
 }
 

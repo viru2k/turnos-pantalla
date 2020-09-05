@@ -586,8 +586,9 @@ border: 1px  #AED581!important;
   font-size: 80px;
   letter-spacing: 2px;
   line-height: 44px;
-  padding-left: 8em;
+  //padding-left: 8em;
   text-align: center;
+  
 }
 
 
@@ -599,8 +600,8 @@ border: 1px  #AED581!important;
   font-size: 90px;
   letter-spacing: 2px;
   line-height: 44px;
-  padding-left: 6em;
-  text-align: center;
+  //padding-left: 6em;
+  //text-align: center;
 }
 
 .text-color-white{
@@ -630,7 +631,7 @@ ESTILO DEL CHAT
   border-radius: 24px;
   background-color: &fondo-numeros;
   box-shadow: 0 6px 30px 0 rgba(0,0,0,0.06);
-  padding: 15px;
+  padding: 5px;
   text-align: center;
   margin-top: 20px;
 }
@@ -682,7 +683,7 @@ font-weight: 600;
 .border-text-puesto {
   font-family: 'Varela Round', sans-serif !important;
   color: $color-text-puesto-numero;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 600;
   letter-spacing: 2px;
   line-height: 44px;
@@ -726,7 +727,7 @@ font-weight: 600;
 
 .background-principal{
   background-size: 100% 100%;
-  //background-image: url(../../../assets/images/background/medic.jpg);
+  //¡background-image: url(../../../assets/images/background/medic.jpg);
  
 }
 
