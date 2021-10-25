@@ -1,14 +1,13 @@
 
-    <div class="  fondo mt-5" >    
-        
-            <div class=""  *ngIf="rssFeed" >
-                <div class="mb-3"> 
-                    <h6 class="">  {{rssFeed[contador].title }}</h6>
-                </div>
-                    
-                <div class="row  d-flex justify-content-start " >
+    <div class="  fondo mt-3" >    
+
+                <div class="row  d-flex justify-content-start "*ngIf="rssFeed" >
                     <div class="col-2 d-flex justify-content-start">
-                        <img id="wicon" src="{{rssFeed[contador].enclosure[0].$.url}}" alt="imagen" class="mr-2 logo-img" width="256" height="256px"> 
+                        <div>
+                            <label  class=" ml-4 texto-noticia">NOTICIAS</label>
+                            <img id="wicon" src="{{rssFeed[contador].enclosure[0].$.url}}" alt="imagen" class="mr-2 logo-img" width="256" height="256px"> 
+                        </div>
+                        
                     </div>
                     <div class="col-10 d-flex justify-content-start">
                         <label class=" ml-4 texto-rss"  >  
@@ -16,7 +15,4 @@
                          </label>
                     </div>
             </div>
-            </div>
-          
-    
         </div>

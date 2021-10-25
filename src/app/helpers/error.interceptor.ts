@@ -13,7 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {
-                this.throwAlert('error','Usuario o contraseña incorrectos',  'Verifique el usuario y contraseña, su sesion puede haber expirado',err.status);
+              //  this.throwAlert('error','Usuario o contraseña incorrectos',  'Verifique el usuario y contraseña, su sesion puede haber expirado',err.status);
                 // auto logout if 401 response returned from api
               //  this.authenticationService.logout();// DEBEN SER DESBLOQUEADO CUANDO SE CORRIJA
                // location.reload(true);
@@ -21,7 +21,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
             
             const error = err.error.message || err.statusText;
-            return throwError(error);
+            return throwError(err);
         }))
     }
 
